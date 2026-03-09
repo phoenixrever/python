@@ -1,0 +1,114 @@
+{
+  // ---------- 编辑器基础 ----------
+
+  // 字体大小
+  "editor.fontSize": 14,
+
+  // 推荐编程字体
+  "editor.fontFamily": "JetBrains Mono, Cascadia Code, Consolas",
+
+  // 启用字体连字
+  "editor.fontLigatures": true,
+
+  // 保存自动格式化
+  "editor.formatOnSave": true,
+
+  // ---------- Hover 提示 ----------
+
+  // 悬停提示（新版必须用字符串）
+  "editor.hover.enabled": "on",
+
+  // Hover 延迟（毫秒）
+  "editor.hover.delay": 300,
+
+  // 函数参数提示
+  "editor.parameterHints.enabled": true,
+
+  // AI整行补全
+  "editor.inlineSuggest.enabled": true,
+
+  // ---------- 编辑体验 ----------
+
+  // 关闭右侧代码缩略图
+  "editor.minimap.enabled": false,
+
+  // 括号辅助线
+  "editor.guides.bracketPairs": true,
+
+  // 括号颜色区分
+  "editor.bracketPairColorization.enabled": true,
+
+  // 自动补全触发条件
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+
+  // 自动补全默认选第一个
+  "editor.suggestSelection": "first",
+
+  // ---------- Python 类型检查 ----------
+
+  // 严格类型检查
+  "python.analysis.typeCheckingMode": "strict",
+
+  // 自动import补全
+  "python.analysis.autoImportCompletions": true,
+
+  // ---------- Python Inlay Hints ----------
+
+  // 显示变量类型
+  "python.analysis.inlayHints.variableTypes": true,
+
+  // 显示函数返回类型
+  "python.analysis.inlayHints.functionReturnTypes": true,
+
+  // 显示函数参数名称
+  "python.analysis.inlayHints.callArgumentNames": "all",
+
+  // ---------- Python 诊断 ----------
+
+  // 分析整个workspace
+  "python.analysis.diagnosticMode": "workspace",
+
+  // 使用库代码推断类型
+  "python.analysis.useLibraryCodeForTypes": true,
+
+  // 未定义变量直接报错
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportUndefinedVariable": "error"
+  },
+
+  // ---------- Ruff ----------
+
+  // 启用 Ruff lint
+  "ruff.lint.enable": true,
+
+  // Python 默认 formatter 使用 Ruff
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+
+  // 保存时自动修复并整理 import
+  "editor.codeActionsOnSave": {
+    "source.fixAll.ruff": "always",
+    "source.organizeImports.ruff": "always"
+  },
+
+  // ---------- Debug ----------
+
+  // 调试时在代码旁显示变量值
+  "debug.showInlineValues": true,
+
+  // ---------- Error Lens ----------
+
+  // 错误直接显示在代码行
+  "errorLens.enabled": true,
+
+  // 显示错误文本
+  "errorLens.messageEnabled": true,
+
+  // 错误跟随光标
+  "errorLens.followCursor": "activeLine"
+}

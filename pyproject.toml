@@ -1,0 +1,236 @@
+# =========================================================
+# Python 项目构建系统配置
+# =========================================================
+# 这部分定义 Python 项目如何被构建和安装
+# 几乎所有现代 Python 项目都需要
+[build-system]
+
+# 构建项目需要的工具
+requires = [
+    "setuptools>=65",   # Python 最常见的构建工具
+    "wheel"             # 用于构建 .whl 安装包
+]
+
+# 指定使用 setuptools 构建项目
+build-backend = "setuptools.build_meta"
+
+
+
+# =========================================================
+# 项目基础信息（PEP 621 标准）
+# =========================================================
+[project]
+
+# 项目名称（pip 安装时的名字）
+name = "my-python-project"
+
+# 项目版本号
+version = "0.1.0"
+
+# 项目简介
+description = "Example Python project with Ruff and Pytest"
+
+# README 文件
+readme = "README.md"
+
+# Python版本要求
+requires-python = ">=3.10"
+
+# 作者信息
+authors = [
+  { name="Your Name", email="you@example.com" }
+]
+
+# 项目许可证
+license = { text = "MIT" }
+
+# 项目关键词
+keywords = [
+  "python",
+  "example",
+  "ruff",
+  "pytest"
+]
+
+# 项目依赖（pip install 时自动安装）
+dependencies = [
+  "requests>=2.31",
+  "numpy>=1.25"
+]
+
+
+
+# =========================================================
+# 可选依赖（开发环境）
+# =========================================================
+# 使用方式：
+# pip install -e .[dev]
+[project.optional-dependencies]
+
+dev = [
+  "pytest",
+  "ruff",
+  "ipython"
+]
+
+
+
+# =========================================================
+# Ruff 主配置
+# =========================================================
+[tool.ruff]
+
+# 允许的最大代码行长度
+# PEP8 默认是79
+# Black 默认是88
+# 很多项目使用88
+line-length = 88
+
+# 目标 Python 版本
+# 影响 Ruff 提供的升级建议
+target-version = "py311"
+
+# Ruff 忽略的目录
+# 不会进行 lint / format
+exclude = [
+  ".git",
+  ".venv",
+  "venv",
+  "__pycache__",
+  "build",
+  "dist"
+]
+
+
+
+# =========================================================
+# Ruff 代码格式化配置
+# =========================================================
+[tool.ruff.format]
+
+# 字符串引号风格
+# 可选：
+# "single"   → 强制单引号
+# "double"   → 强制双引号
+# "preserve" → 保持原样（推荐）
+quote-style = "preserve"
+
+# 缩进方式
+# 可选：space / tab
+indent-style = "space"
+
+# 行尾换行符
+# lf = Linux / macOS
+# crlf = Windows
+line-ending = "lf"
+
+# trailing comma 行为
+# 类似 Black
+skip-magic-trailing-comma = false
+
+
+
+# =========================================================
+# Ruff lint 规则
+# =========================================================
+[tool.ruff.lint]
+
+# 启用哪些规则
+# 这些规则来自不同 lint 插件
+select = [
+
+  "E",    # pycodestyle error
+  "F",    # Pyflakes（变量错误 / import错误）
+  "W",    # pycodestyle warning
+
+  "B",    # flake8-bugbear（潜在bug）
+
+  "I",    # import 排序
+
+  "UP",   # Python升级建议
+
+  "SIM",  # 代码简化
+
+  "C4",   # 不必要的list/dict comprehension
+
+  "RET",  # return结构优化
+
+  "ARG",  # 未使用函数参数
+
+  "PL"    # pylint规则（复杂度 / 代码质量）
+]
+
+# 忽略某些规则
+ignore = [
+  "E501"  # 忽略行长度检查
+]
+
+# =========================================================
+# Pyflakes 规则
+# =========================================================
+[tool.ruff.lint.pyflakes]
+
+# 允许未使用变量
+# 例如：
+# _unused = 123 如果你想忽略某些未使用变量 ruff 的标准方式是 使用 _ 前缀：
+# allowed-unused-variables = ["_"] 新版移除了 _ 以外的变量也会被允许，例如 __unused 或 unused_ 等等
+
+
+# =========================================================
+# Import 排序
+# =========================================================
+[tool.ruff.lint.isort]
+
+# 合并 as import
+combine-as-imports = true
+
+# 按模块类型排序
+order-by-type = true
+
+
+
+# =========================================================
+# Pylint 复杂度规则
+# =========================================================
+[tool.ruff.lint.pylint]
+
+# 函数最大参数数量
+max-args = 8
+
+# 最大分支数量
+max-branches = 12
+
+# 最大 return 数
+max-returns = 6
+
+# 最大语句数
+max-statements = 50
+
+
+
+# =========================================================
+# Pytest 配置
+# =========================================================
+[tool.pytest.ini_options]
+
+# pytest 搜索测试目录
+testpaths = [
+  "tests"
+]
+
+# pytest 识别的测试文件
+python_files = [
+  "test_*.py",
+  "*_test.py"
+]
+
+# pytest 输出选项
+addopts = [
+  "-ra",
+  "-q"
+]
+
+# pytest warnings
+filterwarnings = [
+  "ignore::DeprecationWarning"
+]
