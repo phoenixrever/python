@@ -1,4 +1,10 @@
-"""在该文件中，我主要学习了注释相关的内容"""
+"""
+#coding=Shift_JIS  解码用,读取的时候用Shift_JIS 来读 字符串会乱码
+
+📋备注：在 Python3 中，可以不写文件编码声明，因为 Python3 默认就使用 UTF-8 编码。
+
+📢注意：Python 中并没有真正的多行注释语法，所谓多行注释的本质其实还是字符串
+"""
 
 # name是张三的名字
 name = '张三'
@@ -19,4 +25,4 @@ MAX_USERS是最大同时在线人数
 ADULT_AGE = 18
 MONTHS_IN_YEAR = 12
 MAX_USERS = 1200
-print(ADULT_AGE,MONTHS_IN_YEAR,MAX_USERS)
+print(ADULT_AGE, MONTHS_IN_YEAR, MAX_USERS)
